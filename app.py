@@ -32,7 +32,7 @@ def materialize_data():
 
 
 @st.cache_data
-def magic(df, query, n=7):
+def magic(df, query, n=10):
     embedding = get_embedding(query, engine=EMBEDDING_MODEL)
     df["similarities"] = df.embedding.apply(lambda x: cosine_similarity(x, embedding))
     res = df.sort_values("similarities", ascending=False).head(n)
@@ -95,12 +95,7 @@ def display_card(result):
     st.markdown(card_content, unsafe_allow_html=True)
 
 
-if __name__ == "__main__":
-    st.set_page_config(
-        page_title="CySearch",
-        page_icon="🔍",
-    )
-
+def header():
     st.markdown(
         "<h1 style='text-align: center;'>CySearch 🔎</h1>",
         unsafe_allow_html=True,
@@ -109,6 +104,30 @@ if __name__ == "__main__":
         "<p style='text-align: center; margin-top: -10px; color: #ccc;'>Find the right class for you using AI</p>",
         unsafe_allow_html=True,
     )
+
+
+def footer():
+    st.markdown(
+        """
+        <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+        </style>
+
+        <hr margintop: 20px>
+        <p style='text-align: center; margin-top: 10px;'>Made with ❤️ by <a href = 'https://benneo.super.site/'> Benedict Neo </a> </p>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
+if __name__ == "__main__":
+    st.set_page_config(
+        page_title="CySearch",
+        page_icon="🔍",
+    )
+
+    header()
 
     df = materialize_data()
 
@@ -121,8 +140,8 @@ if __name__ == "__main__":
     # provide some sample queries to choose from, when user clicks on one, it will be copied to the search input
     sample_queries = [
         "machine learning but for engineering students",
-        "statistics classes that are practical and less theory",
-        "CS classes that teaches algorithms",
+        "statistics classes that are applied and less theoretical",
+        "agriculture classes that focus on the business slide",
     ]
 
     # or try query below
@@ -149,3 +168,5 @@ if __name__ == "__main__":
         else:
             for _, result in res.iterrows():
                 display_card(result)
+
+    footer()
