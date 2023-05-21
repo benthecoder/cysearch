@@ -97,11 +97,9 @@ def display_card(result):
 
 def header():
     st.markdown(
-        "<h1 style='text-align: center;'>CySearch 🔎</h1>",
-        unsafe_allow_html=True,
-    )
-    st.markdown(
-        "<p style='text-align: center; margin-top: -10px; color: #ccc;'>Find the right class for you using AI</p>",
+        """
+        <h1 style='text-align: center;'>CySearch 🔎</h1>
+        <p style='text-align: center; margin-top: -10px; color: #ccc;'>Find the right class for you using AI</p>""",
         unsafe_allow_html=True,
     )
 
@@ -109,11 +107,6 @@ def header():
 def footer():
     st.markdown(
         """
-        <style>
-            #MainMenu {visibility: hidden;}
-            footer {visibility: hidden;}
-        </style>
-
         <hr margintop: 20px>
         <p style='text-align: center; margin-top: 10px;'>Made with ❤️ by <a href = 'https://benneo.super.site/'> Benedict Neo </a> </p>
         """,
