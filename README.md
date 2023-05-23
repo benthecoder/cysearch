@@ -1,5 +1,7 @@
 # Iowa State University Course Search
 
+![home](home.png)
+
 Inspired by [Jayadityas](https://www.linkedin.com/in/jayadityasethi/) and his app [BerkeleyQuest](https://berkeley.streamlit.app/), I decided to built a semantic course search for Iowa State.
 
 I scraped a total of 8493 classes using [scrape.py](/scrape.py) from the [course catalog page](https://catalog.iastate.edu/azcourses/)
