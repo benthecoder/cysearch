@@ -25,5 +25,5 @@ if __name__ == "__main__":
     df["embedding"] = df.combined.apply(
         lambda x: get_embedding(x, engine=embedding_model)
     )
-    df["embeddings"] = df["embeddings"].apply(ast.literal_eval)
+    df["embedding"] = df["embedding"].apply(ast.literal_eval)
     df.to_csv("data/course_w_embeddings.csv", index=False)
